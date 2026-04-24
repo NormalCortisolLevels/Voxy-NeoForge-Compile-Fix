@@ -91,7 +91,7 @@ You might wonder: "Why not just use the Fabric version with [Sinytra Connector](
 ### Command Line (Requires Git)
 If you don't have Git, you can download it from [git-scm.com](https://git-scm.com/).
 ```bash
-git clone https://github.com/NormalCortisolLevels/voxy-neoforge.git
+git clone https://github.com/NormalCortisolLevels/Voxy-NeoForge-Compile-Fix/tree/neoforge-1.21.1-(compile-fixes)
 cd voxy-neoforge
 ./gradlew build
 ```
@@ -115,6 +115,6 @@ Original Voxy: https://modrinth.com/mod/voxy
 
 Original Repo: https://github.com/j-shelfwood/voxy-neoforge
 
-This Fork: https://github.com/NormalCortisolLevels/voxy-neoforge (fixes compile issues causde by deprecated gradlew processes and pythonencoding utf-8 error)
+This Fork: https://github.com/NormalCortisolLevels/Voxy-NeoForge-Compile-Fix/tree/neoforge-1.21.1-(compile-fixes) (fixes compile issues causde by deprecated gradlew processes and pythonencoding utf-8 error)
 
 Sinytra Connector (alternative): modrith: https://modrinth.com/mod/connector
