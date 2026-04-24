@@ -1,6 +1,6 @@
 # Voxy NeoForge 1.21.1
 
-> **Unofficial NeoForge port** of the Voxy mod
+> **Unofficial NeoForge port** of the Voxy Level-of-Detail (LOD) mod.
 
 ## Special Thanks
 
@@ -19,7 +19,9 @@ The original Voxy mod is licensed under **All Rights Reserved** by MCRcortex. Th
 
 ## About
 
-**Voxy** is a Level-of-Detail (LOD) rendering mod for Minecraft that extends your view distance far beyond vanilla limits by rendering distant terrain at lower detail levels.
+**Voxy** is a Level-of-Detail (LOD) rendering mod for Minecraft that extends your view distance far beyond vanilla limits by rendering distant terrain at lower detail levels. 
+
+This fork specifically addresses build-time errors and mapping conflicts found in the original port.
 
 ## Why This Port?
 
@@ -29,7 +31,7 @@ You might wonder: "Why not just use the Fabric version with [Sinytra Connector](
 |--------|----------------------------------|-------------------|
 | **Performance** | No translation overhead | Runtime translation layer |
 | **Mod Integration** | Native NeoForge API calls | Fabric API emulation via FFAPI |
-| **Maintenance** | Must track upstream Voxy changes | Just drop in Fabric jar |
+| **Maintenance** | Fixed 1.21.1 mapping errors | General translation layer |
 | **Stability** | Tested against NeoForge directly | May have edge cases from translation |
 | **Dependencies** | Forgified Fabric API | Connector + Forgified Fabric API |
 
@@ -43,8 +45,9 @@ You might wonder: "Why not just use the Fabric version with [Sinytra Connector](
 - LOD terrain rendering beyond vanilla render distance
 - Smooth transitions between LOD and vanilla chunks
 - Fog integration (disabled at LOD boundaries)
-- Block model baking for all render types (solid, cutout, cutout_mipped, translucent)
+- Block model baking for all render types (solid, cutout, translucent)
 - Delayed chunk unloading to prevent pop-out effects
+- **Fixed:** Corrected build logic to resolve "class not found" and mapping errors.
 
 ### Current Limitations
 - Requires Sodium 0.6.13+ (NeoForge version)
@@ -80,24 +83,38 @@ You might wonder: "Why not just use the Fabric version with [Sinytra Connector](
 
 ## Building from Source
 
+### Windows (Recommended)
+1. Download this repository as a **ZIP** and extract it.
+2. Run **`VoxyBuilder.bat`**.
+3. Follow the prompts to compile. Use the **Deployment** menu to move the JAR to your mods folder.
+
+### Command Line (Requires Git)
+If you don't have Git, you can download it from [git-scm.com](https://git-scm.com/).
 ```bash
-git clone https://github.com/j-shelfwood/voxy-neoforge.git
+git clone https://github.com/NormalCortisolLevels/voxy-neoforge.git
 cd voxy-neoforge
 ./gradlew build
 ```
-
-The built JAR will be in `build/libs/`.
+The built JAR will be in build/libs/.
 
 ## Contributing
+For development guidelines, see CLAUDE.md.
 
-For development guidelines, see [CLAUDE.md](CLAUDE.md).
+## Project Structure
+src/: Java source code and assets.
 
-### Validation Scripts
+VoxyBuilder.bat: Automated build script for Windows.
 
-The `scripts/` directory contains build validation tools used in CI.
+scripts/: Build validation tools used in CI.
+
+## Legal
+NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
 
 ## Links
+Original Voxy: https://modrinth.com/mod/voxy
 
-- **Original Voxy:** [github.com/MCRcortex/voxy](https://github.com/MCRcortex/voxy)
-- **This Port:** [github.com/j-shelfwood/voxy-neoforge](https://github.com/j-shelfwood/voxy-neoforge)
-- **Sinytra Connector (alternative):** [github.com/Sinytra/Connector](https://github.com/Sinytra/Connector)
+Original Repo: https://github.com/j-shelfwood/voxy-neoforge
+
+This Fork: https://github.com/NormalCortisolLevels/voxy-neoforge (fixes compile issues causde by deprecated gradlew processes and pythonencoding utf-8 error)
+
+Sinytra Connector (alternative): modrith: https://modrinth.com/mod/connector
